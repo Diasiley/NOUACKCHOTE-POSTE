@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="نواكشوط بوست - أحدث الأخبار من موريتانيا والعالم">
+    <title>نواكشوط بوست - أخبار موريتانيا</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <span class="date-time">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span id="current-date"></span>
+                </span>
+                <span class="weather">
+                    <i class="fas fa-cloud-sun"></i>
+                    <span>نواكشوط: 32°م</span>
+                </span>
+            </div>
+            <div class="top-bar-right">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fas fa-bell"></i> اشترك بالنشرة</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-section">
+                <h1 class="logo">نواكشوط بوست</h1>
+                <p class="tagline">أخبار موريتانيا الموثوقة</p>
+            </div>
+            <div class="search-section">
+                <form class="search-form" onsubmit="handleSearch(event)">
+                    <input type="text" id="search-input" placeholder="ابحث عن خبر...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">الرئيسية</a></li>
+                <li><a href="#politics">السياسة</a></li>
+                <li><a href="#economy">الاقتصاد</a></li>
+                <li><a href="#sports">الرياضة</a></li>
+                <li><a href="#tech">التقنية</a></li>
+                <li><a href="#culture">الثقافة</a></li>
+                <li><a href="#health">الصحة</a></li>
+                <li><a href="#society">المجتمع</a></li>
+                <li><a href="admin/login.html" class="admin-link"><i class="fas fa-lock"></i> دخول المحرر</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breaking News -->
+    <div class="breaking-news">
+        <div class="container">
+            <span class="breaking-label">
+                <i class="fas fa-bolt"></i> عاجل
+            </span>
+            <div class="breaking-content">
+                <marquee>
+                    مؤتمر صحفي حول تطورات جديدة في الساحة السياسية الموريتانية | وزارة الصحة تعلن عن مبادرة جديدة |
+                    بطولة كأس العالم 2026 تقترب من موعدها
+                </marquee>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Featured News Section -->
+            <section class="featured-section">
+                <div class="featured-main">
+                    <article class="featured-article" id="featured-article">
+                        <img src="https://via.placeholder.com/800x400" alt="Featured News" class="featured-image">
+                        <div class="featured-overlay">
+                            <span class="category-badge">سياسة</span>
+                            <h2>الخبر الرئيسي المميز</h2>
+                            <p class="featured-excerpt">هذا النص هو عنصر نائب من lorem ipsum...</p>
+                            <div class="article-meta">
+                                <span><i class="fas fa-calendar"></i> 24 ديسمبر 2025</span>
+                                <span><i class="fas fa-user"></i> محرر نواكشوط بوست</span>
+                                <span><i class="fas fa-eye"></i> 1,234 مشاهدة</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="featured-secondary">
+                    <article class="secondary-article" data-category="اقتصاد">
+                        <img src="https://via.placeholder.com/300x200" alt="News">
+                        <div class="article-content">
+                            <span class="category-badge small">اقتصاد</span>
+                            <h3>أخبار اقتصادية هامة</h3>
+                            <p class="meta-date">23 ديسمبر 2025</p>
+                        </div>
+                    </article>
+
+                    <article class="secondary-article" data-category="رياضة">
+                        <img src="https://via.placeholder.com/300x200" alt="News">
+                        <div class="article-content">
+                            <span class="category-badge small">رياضة</span>
+                            <h3>نتائج البطولة الرياضية</h3>
+                            <p class="meta-date">22 ديسمبر 2025</p>
+                        </div>
+                    </article>
+
+                    <article class="secondary-article" data-category="تقنية">
+                        <img src="https://via.placeholder.com/300x200" alt="News">
+                        <div class="article-content">
+                            <span class="category-badge small">تقنية</span>
+                            <h3>أحدث تطورات التقنية</h3>
+                            <p class="meta-date">21 ديسمبر 2025</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Two Column Layout -->
+            <div class="content-wrapper">
+                <!-- Main News Grid -->
+                <section class="news-section">
+                    <h2 class="section-title">أحدث الأخبار</h2>
+                    <div class="news-grid" id="news-grid">
+                        <!-- يتم تحميل الأخبار هنا -->
+                    </div>
+                </section>
+
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <!-- Most Read -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">الأكثر قراءة</h3>
+                        <ul class="articles-list" id="most-read-list">
+                            <li><a href="#">أهم خبر من أخبار اليوم</a></li>
+                            <li><a href="#">خبر مهم آخر</a></li>
+                            <li><a href="#">تطورات جديدة</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">التصنيفات</h3>
+                        <ul class="categories-list">
+                            <li><a href="#politics">السياسة <span>(45)</span></a></li>
+                            <li><a href="#economy">الاقتصاد <span>(32)</span></a></li>
+                            <li><a href="#sports">الرياضة <span>(28)</span></a></li>
+                            <li><a href="#tech">التقنية <span>(19)</span></a></li>
+                            <li><a href="#culture">الثقافة <span>(23)</span></a></li>
+                            <li><a href="#health">الصحة <span>(15)</span></a></li>
+                            <li><a href="#society">المجتمع <span>(34)</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="sidebar-widget newsletter-widget">
+                        <h3 class="widget-title">النشرة البريدية</h3>
+                        <p>احصل على أحدث الأخبار مباشرة إلى بريدك الإلكتروني</p>
+                        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+                            <input type="email" placeholder="بريدك الإلكتروني" required>
+                            <button type="submit">اشترك</button>
+                        </form>
+                    </div>
+
+                    <!-- Advertisement -->
+                    <div class="sidebar-widget ad-widget">
+                        <div class="ad-placeholder">
+                            <p>مساحة إعلانية</p>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>عن الموقع</h4>
+                    <p>نواكشوط بوست هو أول منصة إخبارية موريتانية موثوقة تقدم أخبار محلية وعالمية بطريقة احترافية.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#">من نحن</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>تابعنا</h4>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>الإحصائيات</h4>
+                    <ul>
+                        <li>عدد الأخبار: <strong id="total-news">0</strong></li>
+                        <li>المشتركون: <strong>2,450</strong></li>
+                        <li>الزوار اليوم: <strong>12,340</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 <strong>نواكشوط بوست</strong> - جميع الحقوق محفوظة</p>
+                <p>تصميم واحترافية <a href="#">نواكشوط بوست</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/apiConfig.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

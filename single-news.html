@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نواكشوط بوست - خبر</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .article-wrapper {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .article-header {
+            margin-bottom: 30px;
+        }
+
+        .article-header h1 {
+            font-size: 36px;
+            line-height: 1.3;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .article-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 14px;
+            color: #666;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .article-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .article-body {
+            font-size: 18px;
+            line-height: 1.8;
+            margin: 30px 0;
+            color: var(--text-color);
+        }
+
+        .article-body img {
+            width: 100%;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .article-body p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .share-section {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+
+        .share-btn.facebook {
+            background: #1877f2;
+        }
+
+        .share-btn.facebook:hover {
+            background: #145dbf;
+        }
+
+        .share-btn.twitter {
+            background: #1da1f2;
+        }
+
+        .share-btn.twitter:hover {
+            background: #1a91da;
+        }
+
+        .share-btn.whatsapp {
+            background: #25d366;
+        }
+
+        .share-btn.whatsapp:hover {
+            background: #20ba5a;
+        }
+
+        .reactions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .reaction-btn {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .reaction-btn:hover {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .related-articles {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .related-articles h3 {
+            font-size: 22px;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .comments-section {
+            margin-top: 40px;
+            padding: 30px;
+            background: var(--light-bg);
+            border-radius: 8px;
+        }
+
+        .comments-section h3 {
+            font-size: 22px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .comment-form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .comment-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-family: var(--font-primary);
+            font-size: 14px;
+            margin-bottom: 10px;
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .comment-form button {
+            background: var(--secondary-color);
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 700;
+            font-family: var(--font-primary);
+        }
+
+        .comment {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .comment-author {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .comment-date {
+            color: #999;
+        }
+
+        .comment-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        @media (max-width: 768px) {
+            .article-header h1 {
+                font-size: 24px;
+            }
+
+            .article-body {
+                font-size: 16px;
+            }
+
+            .share-section {
+                flex-direction: column;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <span class="date-time">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span id="current-date"></span>
+                </span>
+            </div>
+            <div class="top-bar-right">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fas fa-bell"></i> اشترك</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-section">
+                <h1 class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">نواكشوط بوست</a>
+                </h1>
+                <p class="tagline">أخبار موريتانيا الموثوقة</p>
+            </div>
+            <div class="search-section">
+                <form class="search-form">
+                    <input type="text" placeholder="ابحث عن خبر...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="#politics">السياسة</a></li>
+                <li><a href="#economy">الاقتصاد</a></li>
+                <li><a href="#sports">الرياضة</a></li>
+                <li><a href="#tech">التقنية</a></li>
+                <li><a href="#culture">الثقافة</a></li>
+                <li><a href="#health">الصحة</a></li>
+                <li><a href="#society">المجتمع</a></li>
+                <li><a href="admin/login.html" class="admin-link"><i class="fas fa-lock"></i> دخول</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <article class="article-wrapper" id="article-content">
+                <!-- يتم تحميل محتوى الخبر هنا -->
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>عن الموقع</h4>
+                    <p>نواكشوط بوست هو أول منصة إخبارية موريتانية موثوقة تقدم أخبار محلية وعالمية بطريقة احترافية.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#">من نحن</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>تابعنا</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 <strong>نواكشوط بوست</strong> - جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sample news data (should be fetched from server in production)
+        const newsData = [
+            { id: 1, title: "موريتانيا تحقق نمواً اقتصادياً ملحوظاً", excerpt: "أعلنت وزارة المالية...", content: "<p>موريتانيا تحقق نمواً اقتصادياً ملحوظاً في الربع الأخير.</p><p>أعلنت وزارة المالية عن تحقيق موريتانيا معدل نمو اقتصادي بنسبة 5.2% في الربع الأخير من السنة، مما يعكس تحسناً ملموساً في المؤشرات الاقتصادية الرئيسية.</p>", category: "اقتصاد", date: "2025-12-24", author: "أحمد محمود", image: "https://via.placeholder.com/800x400?text=News", views: 1245 }
+        ];
+
+        document.addEventListener('DOMContentLoaded', function () {
+            setCurrentDate();
+            loadArticle();
+        });
+
+        function setCurrentDate() {
+            const today = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('current-date').textContent = today.toLocaleDateString('ar-SA', options);
+        }
+
+        function loadArticle() {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id') || 1;
+            const article = newsData.find(n => n.id == id) || newsData[0];
+
+            const container = document.getElementById('article-content');
+            container.innerHTML = `
+                <div class="article-header">
+                    <span class="category-badge">${article.category}</span>
+                    <h1>${article.title}</h1>
+                    <div class="article-info">
+                        <span><i class="fas fa-calendar"></i> ${formatDate(article.date)}</span>
+                        <span><i class="fas fa-user"></i> ${article.author}</span>
+                        <span><i class="fas fa-eye"></i> ${article.views} مشاهدة</span>
+                    </div>
+                </div>
+
+                <img src="${article.image}" alt="${article.title}" style="width: 100%; border-radius: 8px; margin-bottom: 30px;">
+
+                <div class="article-body">
+                    ${article.content}
+                </div>
+
+                <div class="share-section">
+                    <span>شارك هذا الخبر:</span>
+                    <div class="share-buttons">
+                        <a href="https://facebook.com/sharer/sharer.php?u=${window.location.href}" target="_blank" class="share-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/intent/tweet?url=${window.location.href}" target="_blank" class="share-btn twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.me/?text=${article.title}%20${window.location.href}" target="_blank" class="share-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="reactions">
+                    <button class="reaction-btn"><i class="fas fa-heart"></i> إعجاب (125)</button>
+                    <button class="reaction-btn"><i class="fas fa-share"></i> شارك</button>
+                    <button class="reaction-btn"><i class="fas fa-bookmark"></i> احفظ</button>
+                </div>
+            `;
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return date.toLocaleDateString('ar-SA', options);
+        }
+    </script>
+</body>
+
+</html>
